@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supplier Management | Supplier Monitoring System</title>
+  <meta name="description" content="Manage approved suppliers, contact directories, material categories and supplier compliance statuses.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
+        </div>
+        <div class="brand-text">
+          <h1>ProcureTrack</h1>
+          <span>Supplier Monitoring</span>
+        </div>
+      </div>
+
+      <div class="sidebar-content">
+        <div class="nav-section-title">Core Operations</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="index.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a href="suppliers.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              <span>Suppliers</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="purchase-orders.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+              <span>Purchase Orders</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="deliveries.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>Delivery Tracking</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">Analytics & Reports</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="performance.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              <span>Supplier Performance</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="reports.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <span>Reports & Analytics</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-profile-widget">
+          <div class="user-avatar">PM</div>
+          <div class="user-info">
+            <div class="user-name">Procurement Admin</div>
+            <div class="user-role">Manufacturing Division</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <main class="main-wrapper">
+      <header class="top-header">
+        <div class="header-left">
+          <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <div class="page-title-box">
+            <h2>Supplier Directory & Management</h2>
+            <p>Maintain registered vendors, contact channels and material categories</p>
+          </div>
+        </div>
+        <div class="header-right">
+          <button id="btn-add-supplier" class="btn btn-primary">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            Register Supplier
+          </button>
+        </div>
+      </header>
+
+      <div class="page-body">
+        <!-- Role Operational Capability Banner -->
+        <div id="role-banner-container"></div>
+
+        <!-- Toolbar Filters -->
+        <div class="toolbar-container">
+          <div class="toolbar-filters">
+            <div class="search-input-group">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              <input type="text" id="supplier-search" placeholder="Search by name, ID, contact or city...">
+            </div>
+
+            <select id="supplier-category-filter" class="filter-select">
+              <option value="">All Categories</option>
+            </select>
+
+            <select id="supplier-status-filter" class="filter-select">
+              <option value="">All Statuses</option>
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+          </div>
+          <div style="font-size:0.85rem; font-weight:600; color:var(--slate-500);" id="supplier-total-count">
+            Loading suppliers...
+          </div>
+        </div>
+
+        <!-- Supplier Data Table -->
+        <div class="card">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Supplier ID</th>
+                  <th>Company Name & City</th>
+                  <th>Primary Contact</th>
+                  <th>Material Category</th>
+                  <th>Linked Orders</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="suppliers-table-body">
+                <!-- Dynamically loaded via suppliers.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal: Add / Edit Supplier -->
+  <div id="supplier-modal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="supplier-modal-title" class="modal-title">Register New Supplier</h3>
+        <button id="btn-close-supplier-modal" class="btn btn-icon" aria-label="Close modal">&times;</button>
+      </div>
+      <form id="supplier-form">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="sup-id">Supplier ID <span class="required">*</span></label>
+              <input type="text" id="sup-id" class="form-control" placeholder="e.g. SUP-1009" required>
+              <div class="form-help">Unique uppercase identifier</div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="sup-company">Company Name <span class="required">*</span></label>
+              <input type="text" id="sup-company" class="form-control" placeholder="Legal registered company name" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="sup-contact">Contact Person <span class="required">*</span></label>
+              <input type="text" id="sup-contact" class="form-control" placeholder="Procurement liaison" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="sup-email">Email Address <span class="required">*</span></label>
+              <input type="email" id="sup-email" class="form-control" placeholder="official@company.example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="sup-phone">Phone Number</label>
+              <input type="text" id="sup-phone" class="form-control" placeholder="+91 98XXX XXXXX">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="sup-city">City / State <span class="required">*</span></label>
+              <input type="text" id="sup-city" class="form-control" placeholder="e.g. Pune, Maharashtra" required>
+            </div>
+
+            <div class="form-group span-full">
+              <label class="form-label" for="sup-category">Product / Material Category <span class="required">*</span></label>
+              <input type="text" id="sup-category" class="form-control" placeholder="e.g. Metals & Alloys, Electronic Components" required>
+            </div>
+
+            <div class="form-group span-full">
+              <label class="form-label" for="sup-address">Industrial Address / Works</label>
+              <input type="text" id="sup-address" class="form-control" placeholder="Plot / Sector / Industrial Estate">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="sup-status">Supplier Status</label>
+              <select id="sup-status" class="form-control">
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-cancel-supplier-modal" class="btn btn-outline">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Supplier</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: View Supplier Profile -->
+  <div id="view-supplier-modal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="view-sup-title" class="modal-title">Supplier Details</h3>
+        <button id="btn-close-view-supplier-modal" class="btn btn-icon" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="background:var(--slate-50); border:1px solid var(--slate-200); border-radius:var(--border-radius); padding:1.25rem; margin-bottom:1.25rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <div style="font-size:0.78rem; text-transform:uppercase; font-weight:700; color:var(--slate-500);" id="view-sup-category">Category</div>
+            <div id="view-sup-status"></div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.85rem; font-size:0.85rem;">
+            <div>
+              <span class="cell-muted">Contact Person:</span>
+              <div id="view-sup-contact" style="font-weight:600;"></div>
+            </div>
+            <div>
+              <span class="cell-muted">Email:</span>
+              <div id="view-sup-email" style="font-weight:600;"></div>
+            </div>
+            <div>
+              <span class="cell-muted">Phone:</span>
+              <div id="view-sup-phone"></div>
+            </div>
+            <div>
+              <span class="cell-muted">Location:</span>
+              <div id="view-sup-city"></div>
+            </div>
+            <div>
+              <span class="cell-muted">Registration Date:</span>
+              <div id="view-sup-reg"></div>
+            </div>
+          </div>
+        </div>
+
+        <h4 style="font-size:0.92rem; font-weight:700; margin-bottom:0.75rem; color:var(--navy-900);">Historical Performance Snapshot</h4>
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:0.75rem; text-align:center;">
+          <div style="background:var(--white); border:1px solid var(--slate-200); border-radius:var(--border-radius-sm); padding:0.75rem;">
+            <div style="font-size:0.72rem; color:var(--slate-500); font-weight:600;">Linked POs</div>
+            <div id="view-sup-orders-count" style="font-size:1.35rem; font-weight:800; color:var(--navy-900);">0</div>
+          </div>
+          <div style="background:var(--white); border:1px solid var(--slate-200); border-radius:var(--border-radius-sm); padding:0.75rem;">
+            <div style="font-size:0.72rem; color:var(--slate-500); font-weight:600;">On-Time Rate</div>
+            <div id="view-sup-ontime-rate" style="font-size:1.35rem; font-weight:800; color:var(--success-600);">0%</div>
+          </div>
+          <div style="background:var(--white); border:1px solid var(--slate-200); border-radius:var(--border-radius-sm); padding:0.75rem;">
+            <div style="font-size:0.72rem; color:var(--slate-500); font-weight:600;">Reliability Rating</div>
+            <div id="view-sup-rating" style="margin-top:0.35rem;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" onclick="document.getElementById('view-supplier-modal').classList.remove('active')" class="btn btn-outline">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/suppliers.js"></script>
+</body>
+</html>

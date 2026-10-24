@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Supplier Delivery & Performance Monitoring System</title>
+  <meta name="description" content="Centralized supplier delivery and performance monitoring system for procurement teams.">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Chart.js for data visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
+        </div>
+        <div class="brand-text">
+          <h1>ProcureTrack</h1>
+          <span>Supplier Monitoring</span>
+        </div>
+      </div>
+
+      <div class="sidebar-content">
+        <div class="nav-section-title">Core Operations</div>
+        <ul class="nav-list">
+          <li class="nav-item active">
+            <a href="index.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="suppliers.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              <span>Suppliers</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="purchase-orders.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+              <span>Purchase Orders</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="deliveries.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>Delivery Tracking</span>
+              <span class="nav-badge" id="nav-delayed-count">0</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">Analytics & Reports</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="performance.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              <span>Supplier Performance</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="reports.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <span>Reports & Analytics</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">System Prototype</div>
+        <div style="padding:0.5rem 0.85rem;">
+          <button id="btn-reset-demo" class="btn btn-outline btn-sm" style="width:100%; font-size:0.75rem; color:var(--slate-300); border-color:rgba(255,255,255,0.15);">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            Reset Sample Data
+          </button>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-profile-widget">
+          <div class="user-avatar">PM</div>
+          <div class="user-info">
+            <div class="user-name">Procurement Admin</div>
+            <div class="user-role">Manufacturing Division</div>
+          </div>
+          <a href="login.html" class="btn-sidebar-logout" title="Sign Out">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <main class="main-wrapper">
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <div class="page-title-box">
+            <h2>Procurement Executive Dashboard</h2>
+            <p>Real-time delivery progress, delay monitoring, and supplier scorecards</p>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="system-status-indicator">
+            <span class="status-dot-pulse"></span>
+            <span>Static Prototype Mode</span>
+          </div>
+          <a href="reports.html" class="btn btn-primary btn-sm">
+            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Export Report
+          </a>
+        </div>
+      </header>
+
+      <!-- Page Body -->
+      <div class="page-body">
+        <!-- Role Operational Capability Banner -->
+        <div id="role-banner-container"></div>
+
+        <!-- In-app Alert Notifications Container -->
+        <div id="dashboard-alerts"></div>
+
+        <!-- KPI Summary Cards Grid -->
+        <div class="kpi-grid">
+          <div class="kpi-card accent-primary">
+            <div>
+              <div class="kpi-label">Active Suppliers</div>
+              <div class="kpi-value" id="kpi-active-suppliers">0</div>
+              <div class="kpi-subtext" id="kpi-total-suppliers-sub">8 registered</div>
+            </div>
+            <div class="kpi-icon-wrap">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </div>
+          </div>
+
+          <div class="kpi-card accent-info">
+            <div>
+              <div class="kpi-label">Total Purchase Orders</div>
+              <div class="kpi-value" id="kpi-total-orders">0</div>
+              <div class="kpi-subtext">Active procurements</div>
+            </div>
+            <div class="kpi-icon-wrap">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            </div>
+          </div>
+
+          <div class="kpi-card accent-warning">
+            <div>
+              <div class="kpi-label">Awaiting Delivery</div>
+              <div class="kpi-value" id="kpi-awaiting-delivery">0</div>
+              <div class="kpi-subtext">Pending / partial</div>
+            </div>
+            <div class="kpi-icon-wrap">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+          </div>
+
+          <div class="kpi-card accent-danger">
+            <div>
+              <div class="kpi-label">Delayed Orders</div>
+              <div class="kpi-value" id="kpi-delayed-orders">0</div>
+              <div class="kpi-subtext negative">Requires intervention</div>
+            </div>
+            <div class="kpi-icon-wrap">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            </div>
+          </div>
+
+          <div class="kpi-card accent-success">
+            <div>
+              <div class="kpi-label">Delivered On Time</div>
+              <div class="kpi-value" id="kpi-ontime-deliveries">0</div>
+              <div class="kpi-subtext positive">Zero delay consignments</div>
+            </div>
+            <div class="kpi-icon-wrap">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+          </div>
+
+          <div class="kpi-card accent-primary">
+            <div>
+              <div class="kpi-label">On-Time Delivery %</div>
+              <div class="kpi-value" id="kpi-ontime-percentage">0%</div>
+              <div class="kpi-subtext">Overall benchmark</div>
+            </div>
+            <div class="kpi-icon-wrap">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="grid-2col">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/></svg>
+                  Purchase Orders & Delivery Trends
+                </h3>
+                <div class="card-subtitle">Monthly distribution of order placement vs on-time fulfillment</div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div style="height: 280px; position:relative;">
+                <canvas id="chart-monthly-trend"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/></svg>
+                  Delivery Status Breakdown
+                </h3>
+                <div class="card-subtitle">Distribution across active consignments</div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div style="height: 280px; position:relative;">
+                <canvas id="chart-status-breakdown"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Delayed Orders Requiring Immediate Attention -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <div class="card-header" style="background:#fff8f8;">
+            <div>
+              <h3 class="card-title" style="color:var(--danger-600);">
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                Delayed Deliveries Requiring Urgent Procurement Attention
+              </h3>
+              <div class="card-subtitle">Deliveries past expected date or flagged late by suppliers</div>
+            </div>
+            <a href="deliveries.html?filter=Delayed" class="btn btn-outline-danger btn-sm">Manage Deliveries</a>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>PO Number</th>
+                  <th>Supplier Company</th>
+                  <th>Expected Date</th>
+                  <th>Ordered Qty</th>
+                  <th>Days Overdue / Delay</th>
+                  <th>Current Status</th>
+                  <th>Remarks / Cause</th>
+                </tr>
+              </thead>
+              <tbody id="delayed-table-body">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Equal 2-Column: Recent POs & Upcoming Deliveries -->
+        <div class="grid-equal-2col">
+          <!-- Recent Orders -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Recent Purchase Orders</h3>
+              <a href="purchase-orders.html" class="btn btn-outline btn-sm">View All</a>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>PO ID</th>
+                    <th>Supplier</th>
+                    <th>Total Value</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="recent-orders-body">
+                  <!-- Dynamically populated -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Upcoming Deliveries -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Upcoming Expected Deliveries</h3>
+              <a href="deliveries.html" class="btn btn-outline btn-sm">View All</a>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Delivery ID</th>
+                    <th>PO ID</th>
+                    <th>Expected Date</th>
+                    <th>Qty</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="upcoming-deliveries-body">
+                  <!-- Dynamically populated -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live User Activity & Audit Trail (Role Operations Log) -->
+        <div class="card" style="margin-top: 1.5rem;">
+          <div class="card-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem;">
+            <div>
+              <div class="card-title" style="display:flex; align-items:center; gap:0.5rem;">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <span>Live User Activity &amp; Audit Trail (Role Operations Log)</span>
+              </div>
+              <div class="card-subtitle">Real-time audit log tracking every user action, role privileges, and blocked operation attempts.</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:0.5rem;">
+              <label for="filter-activity-role" style="font-size:0.8rem; font-weight:600; color:var(--slate-600);">Filter by Role:</label>
+              <select id="filter-activity-role" class="form-control" style="font-size:0.8rem; padding:0.35rem 0.65rem; width:auto;">
+                <option value="">All Roles</option>
+                <option value="Admin">👑 Admin (Rajesh Sengupta)</option>
+                <option value="Purchasing_Manager">👤 Buyer (Priya Menon)</option>
+                <option value="Auditor">🔍 Auditor (Amit Deshmukh)</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>User &amp; Role</th>
+                  <th>Action</th>
+                  <th>Target Entity</th>
+                  <th>Permission Status</th>
+                  <th>Activity Description</th>
+                </tr>
+              </thead>
+              <tbody id="activity-table-body">
+                <!-- Dynamically populated via UI.renderActivityLog -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Calculate & Render System KPIs
+      const summary = CalculationEngine.getSystemSummary();
+      document.getElementById('kpi-active-suppliers').textContent = summary.activeSuppliers;
+      document.getElementById('kpi-total-suppliers-sub').textContent = `${summary.totalSuppliers} total registered`;
+      document.getElementById('kpi-total-orders').textContent = summary.totalOrders;
+      document.getElementById('kpi-awaiting-delivery').textContent = summary.awaitingDelivery;
+      document.getElementById('kpi-delayed-orders').textContent = summary.delayedOrders;
+      document.getElementById('kpi-ontime-deliveries').textContent = summary.onTimeDeliveries;
+      document.getElementById('kpi-ontime-percentage').textContent = `${summary.onTimePercentage}%`;
+
+      const navDelayed = document.getElementById('nav-delayed-count');
+      if (navDelayed) navDelayed.textContent = summary.delayedOrders;
+
+      // 2. Render In-App Alerts for Attention
+      const alertsContainer = document.getElementById('dashboard-alerts');
+      if (summary.delayedOrders > 0) {
+        alertsContainer.innerHTML = `
+          <div class="alert-box alert-danger">
+            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            <div>
+              <div class="alert-title">Procurement Notice: ${summary.delayedOrders} Delayed Deliveries Detected</div>
+              <div>Immediate follow-up required with affected suppliers to prevent manufacturing assembly line stoppages.</div>
+            </div>
+          </div>
+        `;
+      }
+
+      // 3. Populate Delayed Orders Table
+      const deliveries = DataStore.getDeliveries();
+      const suppliers = DataStore.getSuppliers();
+      const orders = DataStore.getOrders();
+
+      const delayedList = deliveries.filter(d => {
+        const delayInfo = CalculationEngine.calculateDelayDays(d.expected_date, d.actual_date, d.status);
+        return delayInfo.isLate || d.status === 'Delayed';
+      });
+
+      const delayedTable = document.getElementById('delayed-table-body');
+      if (delayedList.length === 0) {
+        delayedTable.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:1.5rem; color:var(--success-600);">No overdue or delayed deliveries! All orders running on time.</td></tr>`;
+      } else {
+        delayedTable.innerHTML = delayedList.map(d => {
+          const sup = suppliers.find(s => s.id === d.supplier_id) || { company_name: 'Unknown' };
+          const delayInfo = CalculationEngine.calculateDelayDays(d.expected_date, d.actual_date, d.status);
+          return `
+            <tr class="row-delayed">
+              <td class="cell-code">${d.order_id}</td>
+              <td class="cell-strong">${sup.company_name}</td>
+              <td>${UI.formatDate(d.expected_date)}</td>
+              <td>${d.ordered_qty} units</td>
+              <td><span style="color:var(--danger-600); font-weight:700;">+${delayInfo.delay} Days (${delayInfo.isOverdue ? 'Overdue' : 'Late'})</span></td>
+              <td>${UI.getStatusBadge(d.status)}</td>
+              <td style="font-size:0.8rem;">${d.remarks || 'No notes reported'}</td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      // 4. Populate Recent Orders (top 5)
+      const recentOrders = orders.slice(0, 5);
+      const recentBody = document.getElementById('recent-orders-body');
+      recentBody.innerHTML = recentOrders.map(o => {
+        const sup = suppliers.find(s => s.id === o.supplier_id) || { company_name: 'Unknown' };
+        return `
+          <tr>
+            <td class="cell-code">${o.id}</td>
+            <td>
+              <div class="cell-strong">${sup.company_name}</div>
+              <div class="cell-muted">${UI.formatDate(o.order_date)}</div>
+            </td>
+            <td class="cell-strong">${UI.formatCurrency(o.total_amount)}</td>
+            <td>${UI.getStatusBadge(o.status)}</td>
+          </tr>
+        `;
+      }).join('');
+
+      // 5. Populate Upcoming Deliveries (status Pending or Partial)
+      const upcoming = deliveries.filter(d => d.status === 'Pending' || d.status === 'Partially Delivered').slice(0, 5);
+      const upcomingBody = document.getElementById('upcoming-deliveries-body');
+      upcomingBody.innerHTML = upcoming.map(d => `
+        <tr>
+          <td class="cell-code">${d.id}</td>
+          <td class="cell-code" style="color:var(--primary-600);">${d.order_id}</td>
+          <td>${UI.formatDate(d.expected_date)}</td>
+          <td>${d.ordered_qty}</td>
+          <td>${UI.getStatusBadge(d.status)}</td>
+        </tr>
+      `).join('');
+
+      // 6. Initialize Charts
+      if (window.Chart) {
+        // Trend Chart
+        const trendCanvas = document.getElementById('chart-monthly-trend');
+        new Chart(trendCanvas.getContext('2d'), {
+          type: 'line',
+          data: {
+            labels: ['Jan 2026', 'Feb 2026', 'Mar 2026', 'Apr 2026'],
+            datasets: [
+              {
+                label: 'Purchase Orders Placed',
+                data: [4, 5, 5, 0],
+                borderColor: '#1d4ed8',
+                backgroundColor: 'rgba(29, 78, 216, 0.1)',
+                borderWidth: 2,
+                tension: 0.3,
+                fill: true
+              },
+              {
+                label: 'Completed On-Time',
+                data: [3, 4, 1, 0],
+                borderColor: '#10b981',
+                backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                borderWidth: 2,
+                tension: 0.3,
+                fill: true
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: { beginAtZero: true, ticks: { stepSize: 1 }, grid: { color: '#f1f5f9' } },
+              x: { grid: { display: false } }
+            },
+            plugins: {
+              legend: { position: 'top', labels: { font: { family: 'Inter', weight: 600 } } }
+            }
+          }
+        });
+
+        // Status Breakdown Doughnut Chart
+        const breakdownCanvas = document.getElementById('chart-status-breakdown');
+        const statusCounts = {
+          'Delivered (On Time)': summary.onTimeDeliveries,
+          'Delayed': summary.delayedOrders,
+          'Pending': deliveries.filter(d => d.status === 'Pending').length,
+          'Partially Delivered': deliveries.filter(d => d.status === 'Partially Delivered').length,
+          'Cancelled': deliveries.filter(d => d.status === 'Cancelled').length
+        };
+
+        new Chart(breakdownCanvas.getContext('2d'), {
+          type: 'doughnut',
+          data: {
+            labels: Object.keys(statusCounts),
+            datasets: [{
+              data: Object.values(statusCounts),
+              backgroundColor: ['#10b981', '#ef4444', '#0ea5e9', '#f59e0b', '#94a3b8'],
+              borderWidth: 2,
+              borderColor: '#ffffff'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'right', labels: { font: { family: 'Inter', size: 11 } } }
+            }
+          }
+        });
+      }
+
+      // 7. Render Role Capability Banner & Live Activity Audit Trail
+      UI.renderRoleBanner('role-banner-container');
+      UI.renderActivityLog('activity-table-body');
+
+      const filterRoleEl = document.getElementById('filter-activity-role');
+      if (filterRoleEl) {
+        filterRoleEl.addEventListener('change', () => {
+          UI.renderActivityLog('activity-table-body', filterRoleEl.value);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

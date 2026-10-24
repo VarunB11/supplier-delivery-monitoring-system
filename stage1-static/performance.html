@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supplier Performance Evaluation | Supplier Monitoring System</title>
+  <meta name="description" content="Transparent, rule-based supplier reliability scorecards calculated from actual delivery history.">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
+        </div>
+        <div class="brand-text">
+          <h1>ProcureTrack</h1>
+          <span>Supplier Monitoring</span>
+        </div>
+      </div>
+
+      <div class="sidebar-content">
+        <div class="nav-section-title">Core Operations</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="index.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="suppliers.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              <span>Suppliers</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="purchase-orders.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+              <span>Purchase Orders</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="deliveries.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>Delivery Tracking</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">Analytics & Reports</div>
+        <ul class="nav-list">
+          <li class="nav-item active">
+            <a href="performance.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              <span>Supplier Performance</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="reports.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <span>Reports & Analytics</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-profile-widget">
+          <div class="user-avatar">PM</div>
+          <div class="user-info">
+            <div class="user-name">Procurement Admin</div>
+            <div class="user-role">Manufacturing Division</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <main class="main-wrapper">
+      <header class="top-header">
+        <div class="header-left">
+          <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <div class="page-title-box">
+            <h2>Supplier Performance Evaluation</h2>
+            <p>Transparent, mathematical scorecards based on verified delivery track records</p>
+          </div>
+        </div>
+      </header>
+
+      <div class="page-body">
+        <!-- Transparent Evaluation Logic Banner -->
+        <div class="formula-box">
+          <div class="formula-title">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+            Standardized Procurement Reliability Formulas (Academic Rigor & Industry Standards)
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1rem; font-size:0.8rem; color:var(--slate-700);">
+            <div>
+              <strong>1. On-Time Delivery Rate:</strong><br>
+              <div class="formula-code">(On-Time Completed / Eligible Completed) × 100</div>
+              <div class="form-help">Excludes cancelled &amp; active pending orders.</div>
+            </div>
+            <div>
+              <strong>2. Average Delivery Delay:</strong><br>
+              <div class="formula-code">Sum of positive delay days / Eligible Completed</div>
+              <div class="form-help">Evaluates severity of late deliveries.</div>
+            </div>
+            <div>
+              <strong>3. Quantity Fulfilment Rate:</strong><br>
+              <div class="formula-code">(Total Accepted Qty / Total Ordered Qty) × 100</div>
+              <div class="form-help">Measures quantity conformity across orders.</div>
+            </div>
+            <div>
+              <strong>4. Composite Score &amp; Rating:</strong><br>
+              <div class="formula-code">70% (On-Time %) + 30% (Quantity Fulfilment %)</div>
+              <div class="form-help">>=90% Excellent | >=75% Good | >=60% Avg | &lt;60% Needs Imp.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparative Chart -->
+        <div class="card" style="margin-bottom:2rem;">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Supplier Benchmark Comparison</h3>
+              <div class="card-subtitle">Comparing on-time compliance % against weighted composite scores</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div style="height:300px; position:relative;">
+              <canvas id="chart-supplier-comparison"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filters Toolbar -->
+        <div class="toolbar-container">
+          <div class="toolbar-filters">
+            <div class="search-input-group">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              <input type="text" id="perf-search" placeholder="Search supplier or category...">
+            </div>
+
+            <select id="perf-category-filter" class="filter-select">
+              <option value="">All Categories</option>
+            </select>
+
+            <select id="perf-rating-filter" class="filter-select">
+              <option value="">All Performance Ratings</option>
+              <option value="Excellent">Excellent (90-100%)</option>
+              <option value="Good">Good (75-89%)</option>
+              <option value="Average">Average (60-74%)</option>
+              <option value="Needs Improvement">Needs Improvement (&lt;60%)</option>
+              <option value="Unrated">Unrated (New)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Performance Table -->
+        <div class="card">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Supplier & Category</th>
+                  <th style="text-align:center;">Completed Volume</th>
+                  <th style="text-align:center;">On-Time</th>
+                  <th style="text-align:center;">Late</th>
+                  <th style="min-width:140px;">On-Time Delivery %</th>
+                  <th style="text-align:center;">Avg Delay</th>
+                  <th style="min-width:130px;">Qty Fulfilment</th>
+                  <th style="text-align:center;">Score</th>
+                  <th>Rating Tier</th>
+                  <th>Formula</th>
+                </tr>
+              </thead>
+              <tbody id="performance-table-body">
+                <!-- Dynamically populated via performance.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal: Formula Calculation Breakdown -->
+  <div id="formula-modal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Evaluation Formula Breakdown</h3>
+        <button id="btn-close-formula-modal" class="btn btn-icon" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h4 id="modal-formula-sup-name" style="font-size:1.05rem; font-weight:700; color:var(--navy-900); margin-bottom:1rem;"></h4>
+        
+        <div style="display:flex; flex-direction:column; gap:1rem;">
+          <div style="background:var(--slate-50); padding:1rem; border-radius:var(--border-radius-sm); border-left:3px solid var(--primary-600);">
+            <div style="font-weight:700; font-size:0.85rem; margin-bottom:0.25rem;">Step 1: On-Time Delivery Percentage</div>
+            <div id="formula-on-time-math" class="cell-code" style="font-size:0.85rem; color:var(--slate-800);"></div>
+          </div>
+
+          <div style="background:var(--slate-50); padding:1rem; border-radius:var(--border-radius-sm); border-left:3px solid var(--danger-500);">
+            <div style="font-weight:700; font-size:0.85rem; margin-bottom:0.25rem;">Step 2: Average Delivery Delay (Days)</div>
+            <div id="formula-delay-math" class="cell-code" style="font-size:0.85rem; color:var(--slate-800);"></div>
+          </div>
+
+          <div style="background:var(--slate-50); padding:1rem; border-radius:var(--border-radius-sm); border-left:3px solid var(--warning-500);">
+            <div style="font-weight:700; font-size:0.85rem; margin-bottom:0.25rem;">Step 3: Quantity Fulfilment Percentage</div>
+            <div id="formula-qty-math" class="cell-code" style="font-size:0.85rem; color:var(--slate-800);"></div>
+          </div>
+
+          <div style="background:var(--navy-50); padding:1rem; border-radius:var(--border-radius-sm); border-left:3px solid var(--success-500);">
+            <div style="font-weight:700; font-size:0.85rem; margin-bottom:0.25rem; color:var(--navy-900);">Step 4: Composite Weighted Score (70% On-Time + 30% Qty)</div>
+            <div id="formula-composite-math" class="cell-code" style="font-size:0.9rem; color:var(--navy-900); font-weight:700;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" onclick="document.getElementById('formula-modal').classList.remove('active')" class="btn btn-primary">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/performance.js"></script>
+</body>
+</html>

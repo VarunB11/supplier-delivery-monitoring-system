@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delivery Tracking & Delay Monitoring | Supplier Monitoring System</title>
+  <meta name="description" content="Monitor consignment receipts, calculate delivery delay days, and log status progression history.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
+        </div>
+        <div class="brand-text">
+          <h1>ProcureTrack</h1>
+          <span>Supplier Monitoring</span>
+        </div>
+      </div>
+
+      <div class="sidebar-content">
+        <div class="nav-section-title">Core Operations</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="index.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="suppliers.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              <span>Suppliers</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="purchase-orders.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+              <span>Purchase Orders</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a href="deliveries.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>Delivery Tracking</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">Analytics & Reports</div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="performance.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              <span>Supplier Performance</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="reports.html">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <span>Reports & Analytics</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-profile-widget">
+          <div class="user-avatar">PM</div>
+          <div class="user-info">
+            <div class="user-name">Procurement Admin</div>
+            <div class="user-role">Manufacturing Division</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <main class="main-wrapper">
+      <header class="top-header">
+        <div class="header-left">
+          <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <div class="page-title-box">
+            <h2>Consignment Delivery Tracking</h2>
+            <p>Monitor physical receipts against expected dates, track partial fulfillment and delay days</p>
+          </div>
+        </div>
+      </header>
+
+      <div class="page-body">
+        <!-- Role Operational Capability Banner -->
+        <div id="role-banner-container"></div>
+
+        <!-- Toolbar -->
+        <div class="toolbar-container">
+          <div class="toolbar-filters">
+            <div class="search-input-group">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              <input type="text" id="delivery-search" placeholder="Search by Delivery ID, PO number or supplier...">
+            </div>
+
+            <select id="delivery-supplier-filter" class="filter-select">
+              <option value="">All Suppliers</option>
+            </select>
+
+            <select id="delivery-status-filter" class="filter-select">
+              <option value="">All Statuses</option>
+              <option value="Pending">Pending</option>
+              <option value="Partially Delivered">Partially Delivered</option>
+              <option value="Delivered">Delivered</option>
+              <option value="Delayed">Delayed</option>
+              <option value="Cancelled">Cancelled</option>
+            </select>
+          </div>
+          <div style="font-size:0.85rem; font-weight:600; color:var(--slate-500);" id="delivery-total-count">
+            Loading deliveries...
+          </div>
+        </div>
+
+        <!-- Deliveries Table -->
+        <div class="card">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Delivery ID</th>
+                  <th>PO & Supplier</th>
+                  <th>Delivery Schedule</th>
+                  <th>Fulfillment Progress</th>
+                  <th>Delay / Lead Time</th>
+                  <th>Status</th>
+                  <th>Remarks</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="deliveries-table-body">
+                <!-- Dynamically populated via deliveries.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal: Update Delivery Progress -->
+  <div id="delivery-modal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="delivery-modal-title" class="modal-title">Update Delivery Consignment</h3>
+        <button id="btn-close-delivery-modal" class="btn btn-icon" aria-label="Close modal">&times;</button>
+      </div>
+      <form id="delivery-form">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="del-id">Delivery ID</label>
+              <input type="text" id="del-id" class="form-control" readonly>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="del-order-id">Purchase Order ID</label>
+              <input type="text" id="del-order-id" class="form-control" readonly>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="del-expected-date">Expected Date</label>
+              <input type="date" id="del-expected-date" class="form-control" readonly>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="del-actual-date">Actual Delivery Date <span class="required">*</span></label>
+              <input type="date" id="del-actual-date" class="form-control">
+              <div class="form-help">Date goods physically arrived at warehouse</div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="del-ordered-qty">Ordered Quantity</label>
+              <input type="number" id="del-ordered-qty" class="form-control" readonly>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="del-received-qty">Received Quantity <span class="required">*</span></label>
+              <input type="number" id="del-received-qty" class="form-control" min="0" step="1" required>
+              <div class="form-help">Cannot exceed ordered quantity</div>
+            </div>
+
+            <div class="form-group span-full">
+              <label class="form-label" for="del-status">Delivery Status <span class="required">*</span></label>
+              <select id="del-status" class="form-control" required>
+                <option value="Pending">Pending</option>
+                <option value="Partially Delivered">Partially Delivered</option>
+                <option value="Delivered">Delivered (Full)</option>
+                <option value="Delayed">Delayed</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+              <div class="form-help">Auto-aligned based on received quantity count</div>
+            </div>
+
+            <div class="form-group span-full">
+              <label class="form-label" for="del-remarks">Inspection Notes / Delay Remarks</label>
+              <textarea id="del-remarks" class="form-control" rows="2" placeholder="Record goods receipt note (GRN), quality check outcome, or reason for delay..."></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-cancel-delivery-modal" class="btn btn-outline">Cancel</button>
+          <button type="submit" class="btn btn-primary">Update Delivery</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: View Delivery Details & Audit History -->
+  <div id="view-delivery-modal" class="modal-overlay">
+    <div class="modal-card" style="max-width:680px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Consignment Details: <span id="view-del-id" class="cell-code" style="color:var(--primary-600);"></span></h3>
+        <button id="btn-close-view-delivery-modal" class="btn btn-icon" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="background:var(--slate-50); border:1px solid var(--slate-200); border-radius:var(--border-radius); padding:1.25rem; margin-bottom:1.25rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <div>
+              <span class="cell-muted" style="font-size:0.75rem;">Supplier Organization</span>
+              <div id="view-del-supplier" style="font-size:1rem; font-weight:700; color:var(--navy-900);"></div>
+            </div>
+            <div id="view-del-status"></div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:0.75rem; font-size:0.85rem;">
+            <div>
+              <span class="cell-muted">Purchase Order:</span>
+              <div id="view-del-po" class="cell-code" style="font-weight:700;"></div>
+            </div>
+            <div>
+              <span class="cell-muted">Delay Metric:</span>
+              <div id="view-del-delay"></div>
+            </div>
+            <div>
+              <span class="cell-muted">Expected Delivery:</span>
+              <div id="view-del-exp" style="font-weight:600;"></div>
+            </div>
+            <div>
+              <span class="cell-muted">Actual Date Received:</span>
+              <div id="view-del-act" style="font-weight:600;"></div>
+            </div>
+            <div>
+              <span class="cell-muted">Received / Ordered:</span>
+              <div id="view-del-qty" style="font-weight:700;"></div>
+            </div>
+            <div>
+              <span class="cell-muted">Remarks:</span>
+              <div id="view-del-remarks" style="font-size:0.8rem;"></div>
+            </div>
+          </div>
+        </div>
+
+        <h4 style="font-size:0.92rem; font-weight:700; margin-bottom:0.75rem; color:var(--navy-900);">Delivery Status Audit History Log</h4>
+        <div class="table-responsive" style="max-height:220px; border:1px solid var(--slate-200); border-radius:var(--border-radius-sm);">
+          <table class="data-table" style="font-size:0.82rem;">
+            <thead>
+              <tr>
+                <th>Timestamp</th>
+                <th>Prior Status</th>
+                <th>New Status</th>
+                <th>Event Description</th>
+              </tr>
+            </thead>
+            <tbody id="view-del-history-body">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" onclick="document.getElementById('view-delivery-modal').classList.remove('active')" class="btn btn-outline">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/deliveries.js"></script>
+</body>
+</html>
